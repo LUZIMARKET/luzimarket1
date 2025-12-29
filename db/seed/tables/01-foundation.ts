@@ -18,7 +18,7 @@ export async function seedFoundationTables(database = db, options?: any) {
   // 1. Initialize shipping data first (needed for vendor foreign keys)
   const shippingResult = await initializeShippingData();
   if (shippingResult.success) {
-    logger.info(shippingResult.message, true);
+    logger.info(shippingResult.message || "Shipping data initialized", true);
   } else {
     logger.warn(`Shipping data initialization failed: ${shippingResult.error}`);
   }
